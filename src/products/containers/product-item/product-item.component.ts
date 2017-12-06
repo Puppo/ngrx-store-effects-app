@@ -35,6 +35,7 @@ export class ProductItemComponent implements OnInit {
   constructor(protected store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
+    this.store.dispatch(new fromStore.LoadToppings());
     this.pizza$ = this.store.select(fromStore.getSelectedPizza)
   }
 
