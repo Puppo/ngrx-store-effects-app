@@ -29,14 +29,16 @@ export function reducer (
     case fromToppings.LOAD_TOPPINGS_SUCCESS: {
       const toppings = action.payload;
 
-      const entities = toppings.reduce((entities: { [id: number]: Topping }, topping: Topping) => {
-        return {
-          ...entities,
-          [topping.id]: topping
-        };
-      }, {
-        ...state.entities
-      });
+      const entities = toppings.reduce(
+        (entities: { [id: number]: Topping }, topping: Topping) => {
+          return {
+            ...entities,
+            [topping.id]: topping
+          };
+        },
+        {
+          ...state.entities
+        });
 
       return {
         ...state,
