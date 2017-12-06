@@ -10,22 +10,27 @@ export const getToppingsState = createSelector(
   (state: fromFeature.ProductsState) => state.toppings
 );
 
-export const getToppingsEntries = createSelector(
+export const getToppingEntities = createSelector(
   getToppingsState,
-  fromToppings.getToppingEntities
+  fromToppings.getToppingsEntities
 );
 
 export const getAllToppings = createSelector(
-  getToppingsEntries,
+  getToppingEntities,
   entities => Object.keys(entities).map(id => entities[parseInt(id, 10)])
 );
 
 export const getToppingsLoaded = createSelector(
   getToppingsState,
-  fromToppings.getToppingLoaded
+  fromToppings.getToppingsLoaded
 );
 
 export const getToppingsLoading = createSelector(
   getToppingsState,
-  fromToppings.getToppingLoading
+  fromToppings.getToppingsLoading
+);
+
+export const getSelectedToppings = createSelector(
+  getToppingsState,
+  fromToppings.getSelectedToppings
 );
