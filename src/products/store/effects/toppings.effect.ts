@@ -16,13 +16,15 @@ export class ToppingsEffects {
   ) { }
 
   @Effect()
-  loadToppings$ = this.actions$.ofType(toppingsAction.LOAD_TOPPINGS)
-  .pipe(
-    switchMap(() => {
-      return this.toppingService.getToppings().pipe(
-        map(toppings => new toppingsAction.LoadToppingsSuccess(toppings)),
-        catchError(error => of(new toppingsAction.LoadToppingsFail(error)))
-      );
-    })
-  )
+  loadToppings$ = this.actions$
+    .ofType(toppingsAction.LOAD_TOPPINGS)
+    .pipe(
+      switchMap(() => {
+        return this.toppingService.getToppings().pipe(
+          map(toppings => new toppingsAction.LoadToppingsSuccess(toppings)),
+          catchError(error => of(new toppingsAction.LoadToppingsFail(error)))
+        );
+      })
+    );
+
 }
