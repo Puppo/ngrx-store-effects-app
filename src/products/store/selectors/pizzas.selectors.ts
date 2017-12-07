@@ -22,9 +22,10 @@ export const getSelectedPizza = createSelector(
   getPizzasEntities,
   fromRoot.getRouterState,
   (entities, router): Pizza => {
-    return !!router.state && entities[router.state.params.pizzaId]
+    console.log(router.state, entities);
+    return router.state && entities[router.state.params.pizzaId];
   }
-)
+);
 
 export const getPizzaVisualised = createSelector(
   getSelectedPizza,
