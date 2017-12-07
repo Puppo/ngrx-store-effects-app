@@ -38,7 +38,6 @@ export class ProductItemComponent implements OnInit {
   ngOnInit() {
     this.pizza$ = this.store.select(fromStore.getSelectedPizza).pipe(
       tap((pizza: Pizza = null) => {
-        console.log(pizza);
         const pizzaExists = !!(pizza && pizza.toppings);
         const toppings = pizzaExists
           ? pizza.toppings.map(topping => topping.id)
@@ -65,7 +64,7 @@ export class ProductItemComponent implements OnInit {
   onRemove(event: Pizza) {
     const remove = window.confirm('Are you sure?');
     if (remove) {
-
+      this.store.dispatch(new fromStore.RemovePizza(event));
     }
   }
 }
