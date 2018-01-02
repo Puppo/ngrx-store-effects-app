@@ -75,7 +75,7 @@ export function reducer (
 }
 
 
-export function getToppingsEntities(state: ToppingsState) {
+export function getToppingEntities(state: ToppingsState) {
   return state.entities;
 }
 

@@ -3,7 +3,7 @@ import { createSelector } from '@ngrx/store';
 
 import * as fromRoot from '../../../app/store';
 import * as fromFeature from '../reducers';
-import * as fromToppings from '../reducers/toppings.reducers';
+import * as fromToppings from '../reducers/toppings.reducer';
 
 export const getToppingsState = createSelector(
   fromFeature.getProductState,
@@ -12,7 +12,7 @@ export const getToppingsState = createSelector(
 
 export const getToppingEntities = createSelector(
   getToppingsState,
-  fromToppings.getToppingsEntities
+  fromToppings.getToppingEntities
 );
 
 export const getAllToppings = createSelector(
