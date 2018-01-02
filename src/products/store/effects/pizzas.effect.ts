@@ -32,7 +32,7 @@ export class PizzasEffects {
     );
 
   @Effect()
-  creatPizza$ = this.actions$
+  createPizza$ = this.actions$
     .ofType(pizzaActions.CREATE_PIZZA)
     .pipe(
       map((action: pizzaActions.CreatePizza) => action.payload),
