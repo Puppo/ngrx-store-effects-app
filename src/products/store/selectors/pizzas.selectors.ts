@@ -8,13 +8,13 @@ import * as fromToppings from './toppings.selectors';
 
 import { Pizza } from '../../models/pizza.model';
 
-export const getPizzasState = createSelector(
+export const getPizzaState = createSelector(
   fromFeature.getProductState,
   (state: fromFeature.ProductsState) => state.pizzas
 );
 
 export const getPizzasEntities = createSelector(
-  getPizzasState,
+  getPizzaState,
   fromPizzas.getPizzasEntities
 );
 
@@ -41,10 +41,10 @@ export const getAllPizzas = createSelector(getPizzasEntities, entities => {
 });
 
 export const getPizzasLoaded = createSelector(
-  getPizzasState,
+  getPizzaState,
   fromPizzas.getPizzasLoaded
 );
 export const getPizzasLoading = createSelector(
-  getPizzasState,
+  getPizzaState,
   fromPizzas.getPizzasLoading
 );
